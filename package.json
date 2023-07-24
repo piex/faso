@@ -1,0 +1,92 @@
+{
+  "name": "faso",
+  "version": "0.0.1-alpha.1",
+  "description": "Faso, 在班巴拉语是状态(State)的意思。",
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "pretest": "tsc --noEmit",
+    "test": "jest -c ./jest.config.js",
+    "build": "rollup -c",
+    "publish:alpha": "npm --registry=https://registry.npmjs.org publish --tag alpha --access public"
+  },
+  "keywords": [
+    "state",
+    "jotai",
+    "Recoil",
+    "Signal"
+  ],
+  "author": "foreverzmy",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "esm/*": [
+        "ts3.4/*"
+      ],
+      "*": [
+        "ts3.4/*"
+      ]
+    }
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "default": "./dist/esm/index.mjs"
+      },
+      "module": "./dist/esm/index.js",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./*.d.ts",
+      "import": {
+        "types": "./dist/esm/*.d.mts",
+        "default": "./dist/esm/*.mjs"
+      },
+      "module": "./dist/esm/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README-cn.md"
+  ],
+  "engines": {
+    "node": ">=14.21.3"
+  },
+  "volta": {
+    "node": "18.16.1",
+    "pnpm": "8.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piex/faso.git"
+  },
+  "bugs": {
+    "url": "https://github.com/piex/faso/issues"
+  },
+  "homepage": "https://github.com/piex/faso",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-transform-typescript": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/jest": "^29.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "jest": "^29.6.1",
+    "rollup": "^3.26.3",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6"
+  }
+}
